@@ -1,0 +1,51 @@
+correct_dependency_ids: {}
+dependencies: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+startup: {type: form, module: Homepage}
+package_name: News_App
+allow_embedding: false
+name: Database-backed app
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-sandbox
+  server_spec: null
+  server_spec_disabled: {requirements: '', base: python310-minimal}
+startup_form: null
+db_schema:
+  categories:
+    title: Categories
+    client: search
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 200}
+      type: string
+  entries:
+    title: Entries
+    client: search
+    server: full
+    columns:
+    - name: title
+      admin_ui: {width: 200}
+      type: string
+    - name: content
+      admin_ui: {width: 200}
+      type: string
+    - name: image
+      admin_ui: {width: 200}
+      type: media
+    - name: created
+      admin_ui: {width: 200}
+      type: datetime
+    - name: updated
+      admin_ui: {width: 200}
+      type: datetime
+    - name: category
+      admin_ui: {width: 200}
+      type: link_single
+      target: categories
+renamed: true
