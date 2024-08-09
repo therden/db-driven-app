@@ -7,7 +7,7 @@ services:
 startup: {type: form, module: Homepage}
 package_name: News_App
 allow_embedding: false
-name: Database-backed app
+name: NetNotes
 runtime_options:
   version: 2
   client_version: '3'
@@ -49,3 +49,4 @@ db_schema:
       type: link_single
       target: categories
 renamed: true
+metadata: {description: A web-based notepad, title: NetNotes}
