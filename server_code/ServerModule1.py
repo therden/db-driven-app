@@ -9,6 +9,7 @@ from datetime import datetime
 def add_entry(entry_dict):
   app_tables.entries.add_row(
     created=datetime.now(),
+    updated=datetime.now(),
     **entry_dict
   )
 
@@ -26,7 +27,7 @@ def update_entry(entry, entry_dict):
     entry_dict['updated'] = datetime.now()
     entry.update(**entry_dict)
   else:
-    raise Exception("Entry does not exist")
+    raise Exception("Note does not exist")
 
 @anvil.server.callable
 def delete_entry(entry):
@@ -34,4 +35,4 @@ def delete_entry(entry):
   if app_tables.entries.has_row(entry):
     entry.delete()
   else:
-    raise Exception("Entry does not exist")
+    raise Exception("Note does not exist")

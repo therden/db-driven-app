@@ -22,9 +22,9 @@ class Homepage(HomepageTemplate):
     # Open an alert displaying the 'EntryEdit' Form
     save_clicked = alert(
       content=EntryEdit(item=new_entry),
-      title="Add Entry",
+      title="Add Note",
       large=True,
-      buttons=[("Save", True), ("Cancel", False)]
+      buttons=[("Cancel", False), ("Save", True)]
     )
     # If the alert returned 'True', the save button was clicked.
     if save_clicked:

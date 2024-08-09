@@ -1,4 +1,4 @@
-from ._anvil_designer import EntryView_copyTemplate
+from ._anvil_designer import EntryView_origTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
@@ -7,7 +7,7 @@ from anvil.tables import app_tables
 from ..EntryEdit import EntryEdit
 
 
-class EntryView_copy(EntryView_copyTemplate):
+class EntryView_orig(EntryView_origTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -38,5 +38,5 @@ class EntryView_copy(EntryView_copyTemplate):
     # Get the user to confirm if they wish to delete the entry
     # If yes, raise the 'x-delete-entry' event on the parent
     # (which is the entries_panel on Homepage)
-    if confirm(f"Are you sure you want to delete {self.item['title']}?"):
+    if confirm(f"Are you sure you want to delete '{initial_str}'?"):   
       self.parent.raise_event("x-delete-entry", entry=self.item)
