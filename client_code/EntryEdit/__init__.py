@@ -1,5 +1,6 @@
 from ._anvil_designer import EntryEditTemplate
 from anvil import *
+import anvil.users
 import anvil.server
 from anvil.tables import app_tables
 

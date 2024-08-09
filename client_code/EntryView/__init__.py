@@ -1,5 +1,6 @@
 from ._anvil_designer import EntryViewTemplate
 from anvil import *
+import anvil.users
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -38,11 +39,9 @@ class EntryView(EntryViewTemplate):
     # If yes, raise the 'x-delete-entry' event on the parent 
     # (which is the entries_panel on Homepage)
     # if confirm(f"Are you sure you want to delete {self.item['title']}?"):
-    if len(self.item['content']) < 19:
-      initial_str = self.item['content']
-    else:
-      initial_str = self.item['content'][:18] + "..."
-    if confirm(f"Confirm deletion of note '{initial_str}'"):    
-      self.parent.raise_event('x-delete-entry', entry=self.item)
-
+    stripped_content = self.item["content"].replace("\n"," ")
+    if len(stripped_content) >= 23:
+       stripped_content = stripped_content[:20] + "..."
+    if confirm(f"Confirm deletion of note '{stripped_content}'"):
+      self.parent.raise_event("x-delete-entry", entry=self.item)
 
