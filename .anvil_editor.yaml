@@ -9,6 +9,7 @@ unique_ids:
   server_modules:
     ServerModule1: '1669297017291241838743870.52295'
   assets:
+    netnote-512x512.png: '1723227632417922595088597.8556'
     standard-page.html: ZJZJ5QIRYGBNKV2UF22CFMCG6IVAXZFB
     theme.css: AODQ72BOWB6KZMEX2CIJL5C4PBHWZTDN
   scripts: {}

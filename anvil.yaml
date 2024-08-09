@@ -6,7 +6,7 @@ services:
   server_config: {}
 startup: {type: form, module: Homepage}
 package_name: News_App
-allow_embedding: false
+allow_embedding: true
 name: NetNotes
 runtime_options:
   version: 2
@@ -49,4 +49,4 @@ db_schema:
       type: link_single
       target: categories
 renamed: true
-metadata: {description: A web-based notepad, title: NetNotes}
+metadata: {description: A web-based notepad, title: NetNotes, logo_img: 'asset:netnote-512x512.png'}
