@@ -13,6 +13,8 @@ class EntryView(EntryViewTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.edit_entry_button.background = app.theme_colors['Secondary']
+    self.delete_entry_button.background = app.theme_colors['Secondary']
 
     # Any code you write here will run when the form opens.
 
