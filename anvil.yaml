@@ -6,7 +6,11 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: true, enable_automatically: true, use_email: true, confirm_email: true, use_google: true, allow_remember_me: true, remember_me_days: 30}
-  server_config: {user_table: users}
+  server_config:
+    user_table: users
+    email_content:
+      confirm_address: {html: "<p>Thank you for registering for a <strong>NetNotes</strong> account! </p><p><br></p><p>To complete the process, click the following link to confirm that the email address entered is actually yours:</p><p><br></p><p>\t{{confirm_link}}</p><p><br></p><p>Thanks,</p><p>The <strong>NetNotes</strong> team</p>", subject: Finish setting up your NetNotes account}
+      reset_password: {html: "<p>Hi there,</p><p><br></p><p>We received a password reset request for the <strong>NetNotes</strong> account associated with {{email}}. </p><p><br></p><p>To reset your password, click the link below:</p><p>\t{{reset_link}}</p><p><br></p><p>Note:   The link will expire in ten minutes.</p><p><br></p><p>Thanks,</p><p>The <strong>NetNotes</strong> Team</p>", subject: Reset your NetNotes password}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {test_mode: false}
