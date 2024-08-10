@@ -5,9 +5,12 @@ services:
   client_config: {}
   server_config: {}
 - source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: true, enable_automatically: true, use_email: true, confirm_email: true}
+  client_config: {allow_signup: true, enable_automatically: true, use_email: true, confirm_email: true, use_google: true, allow_remember_me: true, remember_me_days: 30}
   server_config: {user_table: users}
 - source: /runtime/services/anvil/email.yml
+  client_config: {}
+  server_config: {test_mode: false}
+- source: /runtime/services/google.yml
   client_config: {}
   server_config: {}
 startup: {type: form, module: Homepage}
@@ -79,6 +82,9 @@ db_schema:
     - name: signed_up
       admin_ui: {order: 6, width: 200}
       type: datetime
+    - name: remembered_logins
+      admin_ui: {order: 7, width: 200}
+      type: simpleObject
     title: Users
 renamed: true
 metadata: {description: A web-based notepad, title: NetNotes, logo_img: 'asset:netnote-512x512.png'}
