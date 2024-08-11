@@ -1,5 +1,7 @@
 from ._anvil_designer import EntryViewTemplate
 from anvil import *
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
 import anvil.users
 import anvil.server
 import anvil.tables as tables
@@ -11,6 +13,8 @@ class EntryView(EntryViewTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.edit_entry_button.background = app.theme_colors['Green Button']
+    self.delete_entry_button.background = app.theme_colors['Red Button']
 
     # Any code you write here will run when the form opens.
 
