@@ -34,7 +34,8 @@ class Homepage(HomepageTemplate):
       buttons=[("Cancel", False), ("Save", True)]
     )
     # If the alert returned 'True', the save button was clicked.
-    if save_clicked:user_time = datetime.now(anvil.tz.tzlocal())
+    if save_clicked:
+      user_time = datetime.now(anvil.tz.tzlocal())
       anvil.server.call('add_entry', new_entry, user_time)
       self.refresh_entries()
     
