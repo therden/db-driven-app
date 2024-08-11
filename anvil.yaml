@@ -95,4 +95,4 @@ db_schema:
       type: simpleObject
     title: Users
 renamed: true
-metadata: {description: A quick-capture tool for the web, title: My Jots, logo_img: 'asset:note-512x512.png'}
+metadata: {description: A quick-capture tool for the web, title: Jot, logo_img: 'asset:note-512x512.png'}
