@@ -9,8 +9,8 @@ services:
   server_config:
     user_table: users
     email_content:
-      confirm_address: {html: "<p>Thank you for registering for a <strong>NetNotes</strong> account! </p><p><br></p><p>To complete the process, click the following link to confirm that the email address entered is actually yours:</p><p><br></p><p>\t{{confirm_link}}</p><p><br></p><p>Thanks,</p><p>The <strong>NetNotes</strong> team</p>", subject: Finish setting up your NetNotes account}
-      reset_password: {html: "<p>Hi there,</p><p><br></p><p>We received a password reset request for the <strong>NetNotes</strong> account associated with {{email}}. </p><p><br></p><p>To reset your password, click the link below:</p><p>\t{{reset_link}}</p><p><br></p><p>Note:   The link will expire in ten minutes.</p><p><br></p><p>Thanks,</p><p>The <strong>NetNotes</strong> Team</p>", subject: Reset your NetNotes password}
+      confirm_address: {html: '<p>Thank you for registering for a <strong>Jots</strong> account!</p><p>To complete the process, click the following link to confirm that the email address entered is actually yours:</p><p>    {{confirm_link}}</p><p>Thanks,</p><p>The <strong>Jots</strong> team</p>', subject: Finish setting up your Jots account}
+      reset_password: {html: '<p>Hi there,</p><p>We received a password reset request for the <strong>Jots</strong> account associated with {{email}}.</p><p>To reset your password, click the link below:</p><p>   {{reset_link}}</p><p>Note: The link will expire in ten minutes.</p><p>Thanks,</p><p>The <strong>Jots</strong> Team</p>', subject: Reset your Jots password}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {test_mode: false}
@@ -20,7 +20,7 @@ services:
 startup: {type: form, module: Homepage}
 package_name: News_App
 allow_embedding: true
-name: NetNotes
+name: Jot
 runtime_options:
   version: 2
   client_version: '3'
@@ -61,6 +61,10 @@ db_schema:
       admin_ui: {width: 200}
       type: link_single
       target: categories
+    - name: User
+      admin_ui: {width: 200, order: 6}
+      type: link_single
+      target: users
   users:
     client: none
     server: full
@@ -91,4 +95,4 @@ db_schema:
       type: simpleObject
     title: Users
 renamed: true
-metadata: {description: A web-based notepad, title: NetNotes, logo_img: 'asset:netnote-512x512.png'}
+metadata: {description: A quick-capture tool for the web, title: My Jots, logo_img: 'asset:note-512x512.png'}

@@ -42,7 +42,7 @@ components:
     event_bindings: {click: add_entry_button_click}
     layout_properties: {}
 - type: Label
-  properties: {role: title, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: NetNotes}
+  properties: {role: title, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: My Jots}
   name: label_1
   layout_properties: {slot: title}
 - name: image_1

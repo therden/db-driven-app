@@ -8,21 +8,26 @@ from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
 
-
 @anvil.server.callable
 def add_entry(entry_dict):
-  app_tables.entries.add_row(
-    created=datetime.now(),
-    updated=datetime.now(),
-    **entry_dict
+  current_user = anvil.users.get_user()
+  if current_user is not None:
+    app_tables.entries.add_row(
+      created=datetime.now(),
+      updated=datetime.now(),
+      user = current_user,
+      **entry_dict
   )
 
 @anvil.server.callable
 def get_entries():
+  current_user = anvil.users.get_user()
   # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
-  return app_tables.entries.search(
-    tables.order_by("created", ascending=False)
-  )
+  if current_user is not None:
+    return app_tables.entries.search(
+      tables.order_by("created", ascending=False),
+      user = current_user
+    )
 
 @anvil.server.callable
 def update_entry(entry, entry_dict):
