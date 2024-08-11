@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..EntryEdit import EntryEdit
+from datetime import datetime
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -33,9 +34,8 @@ class Homepage(HomepageTemplate):
       buttons=[("Cancel", False), ("Save", True)]
     )
     # If the alert returned 'True', the save button was clicked.
-    if save_clicked:
-      # users_datetime = 
-      anvil.server.call('add_entry', new_entry)
+    if save_clicked:user_time = datetime.now(anvil.tz.tzlocal())
+      anvil.server.call('add_entry', new_entry, user_time)
       self.refresh_entries()
     
   def refresh_entries(self):

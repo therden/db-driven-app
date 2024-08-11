@@ -5,17 +5,17 @@ container:
 components:
 - type: ColumnPanel
   properties: {col_widths: '{}'}
-  name: content_panel
   layout_properties: {slot: default}
+  name: content_panel
   components:
   - type: RepeatingPanel
     properties: {role: null, spacing_above: small, background: '', item_template: EntryView, foreground: '', items: null, spacing_below: small, visible: true, border: '', tooltip: ''}
-    name: entries_panel
     layout_properties: {slot: title, grid_position: 'XRGDXR,JQCHKL'}
+    name: entries_panel
 - type: FlowPanel
   properties: {}
-  name: navbar_links
   layout_properties: {slot: nav-right}
+  name: navbar_links
   components:
   - type: Button
     properties:
@@ -38,14 +38,14 @@ components:
       tooltip: ''
       text: |
         Add a new Note
-    name: add_entry_button
     event_bindings: {click: add_entry_button_click}
     layout_properties: {}
+    name: add_entry_button
 - type: Label
   properties: {role: title, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: My Jots}
-  name: label_1
   layout_properties: {slot: title}
-- name: image_1
-  properties: {height: 41, source: _/theme/netnote-512x512.png}
+  name: label_1
+- properties: {height: 41, source: _/theme/netnote-512x512.png}
   type: Image
   layout_properties: {slot: top-left-btn}
+  name: image_1

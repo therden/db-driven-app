@@ -18,7 +18,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'VKEQZB,WNYNGA'}
     data_bindings:
-    - {property: text, code: '"Last updated: "+self.item[''updated''].strftime("%Y-%m-%d %H:%M:%S")', writeback: false}
+    - {property: text, code: '"Last updated: "+self.item[''updated''].strftime("%Y-%m-%d %H:%M:%S %z")', writeback: false}
   - type: FlowPanel
     properties: {role: null, align: left, spacing_above: small, background: '', foreground: '', spacing_below: none, visible: true, border: '', tooltip: '', spacing: medium}
     name: flow_panel_1
