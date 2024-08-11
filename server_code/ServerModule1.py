@@ -13,8 +13,8 @@ def add_entry(entry_dict):
   current_user = anvil.users.get_user()
   if current_user is not None:
     app_tables.entries.add_row(
-      created=datetime.now(),
-      updated=datetime.now(),
+      created=datetime.now(anvil.tz.tzlocal()),
+      updated=datetime.now(anvil.tz.tzlocal()),
       user = current_user,
       **entry_dict
   )
@@ -33,7 +33,7 @@ def get_entries():
 def update_entry(entry, entry_dict):
   # check that the entry given is really a row in the ‘entries’ table
   if app_tables.entries.has_row(entry):
-    entry_dict['updated'] = datetime.now()
+    # entry_dict['updated'] = datetime.now()
     entry.update(**entry_dict)
   else:
     raise Exception("Note does not exist")

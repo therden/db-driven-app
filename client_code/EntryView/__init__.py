@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..EntryEdit import EntryEdit
+from datetime import datetime
 
 class EntryView(EntryViewTemplate):
   def __init__(self, **properties):
@@ -32,6 +33,7 @@ class EntryView(EntryViewTemplate):
     )
     # Update the entry if the user clicks save
     if save_clicked:
+      entry_copy['updated'] = datetime.now(anvil.tz.tzlocal())
       anvil.server.call('update_entry', self.item, entry_copy)
   
       # Now refresh the page
