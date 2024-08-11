@@ -34,7 +34,7 @@ class Homepage(HomepageTemplate):
     )
     # If the alert returned 'True', the save button was clicked.
     if save_clicked:
-      users_datetime = 
+      # users_datetime = 
       anvil.server.call('add_entry', new_entry)
       self.refresh_entries()
     
