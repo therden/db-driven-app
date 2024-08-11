@@ -46,6 +46,6 @@ components:
   name: label_1
   layout_properties: {slot: title}
 - name: image_1
-  properties: {height: 41, source: _/theme/note-512x512.png}
+  properties: {height: 41, source: _/theme/netnote-512x512.png}
   type: Image
   layout_properties: {slot: top-left-btn}
