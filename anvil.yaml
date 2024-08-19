@@ -48,8 +48,8 @@ db_schema:
     - name: content
       admin_ui: {width: 200}
       type: string
-    - name: image
-      admin_ui: {width: 200}
+    - name: file_to_export
+      admin_ui: {order: 2, width: 200}
       type: media
     - name: created
       admin_ui: {width: 200}
@@ -61,8 +61,8 @@ db_schema:
       admin_ui: {width: 200}
       type: link_single
       target: categories
-    - name: User
-      admin_ui: {width: 200, order: 6}
+    - name: user
+      admin_ui: {width: 200}
       type: link_single
       target: users
   users:
@@ -93,6 +93,9 @@ db_schema:
     - name: remembered_logins
       admin_ui: {order: 7, width: 200}
       type: simpleObject
+    - name: email_confirmation_key
+      admin_ui: {width: 200}
+      type: string
     title: Users
 renamed: true
 metadata: {description: A quick-capture tool for the web, title: Jot, logo_img: 'asset:netnote-512x512.png'}
