@@ -8,6 +8,10 @@ components:
   layout_properties: {slot: default}
   name: content_panel
   components:
+  - name: keepAlive_timer
+    properties: {interval: 1380}
+    type: Timer
+    layout_properties: {grid_position: 'NESCPK,LEARJC'}
   - type: RepeatingPanel
     properties: {role: null, spacing_above: small, background: '', item_template: EntryView, foreground: '', items: null, spacing_below: small, visible: true, border: '', tooltip: ''}
     layout_properties: {slot: title, grid_position: 'XRGDXR,JQCHKL'}

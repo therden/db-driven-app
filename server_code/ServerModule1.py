@@ -46,3 +46,8 @@ def delete_entry(entry):
     entry.delete()
   else:
     raise Exception("Note does not exist")
+
+@anvil.server.callable
+def keep_alive(entry):
+  pass
+  
