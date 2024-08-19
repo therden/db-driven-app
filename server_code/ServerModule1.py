@@ -48,6 +48,9 @@ def delete_entry(entry):
     raise Exception("Note does not exist")
 
 @anvil.server.callable
-def keep_alive(entry):
+def keep_alive():
   pass
-  
+
+@anvil.server.callable
+def programmatic_logout():
+  anvil.users.logout()
