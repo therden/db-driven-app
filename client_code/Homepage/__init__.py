@@ -52,9 +52,9 @@ class Homepage(HomepageTemplate):
     self.refresh_entries()
 
   def keepAlive_timer_tick(self, **event_args):
-    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
-    pass
-
+    """This method is called Every 1380 seconds (23 minutes)."""
+    anvil.server.call('keep_alive')
+    
   def logout_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.server.call('programmatic_logout')
