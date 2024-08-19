@@ -50,3 +50,7 @@ class Homepage(HomepageTemplate):
     # Refresh entry to remove the deleted entry from the Homepage
     self.refresh_entries()
 
+  def keepAlive_timer_tick(self, **event_args):
+    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+    pass
+
