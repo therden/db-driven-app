@@ -42,10 +42,15 @@ components:
       font_size: null
       tooltip: ''
       text: |
-        Add a new Note
+        New Jot
     event_bindings: {click: add_entry_button_click}
     layout_properties: {}
     name: add_entry_button
+  - name: logout_button
+    properties: {text: Log out, background: 'theme:Error', icon: 'fa:arrow-circle-o-right', foreground: 'theme:On Primary', tooltip: '', bold: false, font_size: null}
+    type: Button
+    layout_properties: {}
+    event_bindings: {click: logout_button_click}
 - type: Label
   properties: {role: title, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: My Jots}
   layout_properties: {slot: title}

@@ -9,6 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..EntryEdit import EntryEdit
 from datetime import datetime
+import anvil.js.window
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -54,3 +55,7 @@ class Homepage(HomepageTemplate):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
     pass
 
+  def logout_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('programmatic_logout')
+    anvil.js.window.location.reload(True)
