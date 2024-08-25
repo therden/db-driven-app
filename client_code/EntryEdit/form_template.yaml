@@ -11,9 +11,9 @@ components:
   type: Label
   layout_properties: {grid_position: 'ESBUON,HAIDRF XYBYYE,RMGCQE'}
 - type: TextArea
-  properties: {height: '181', align: left, auto_expand: true}
+  properties: {height: '181', align: left, auto_expand: true, visible: false}
   name: content_box
   layout_properties: {grid_position: 'ESBUON,PJCXQE'}
   data_bindings:
-  - {property: text, code: 'self.item[''content'']', writeback: true}
+  - {property: text, code: 'self.item[''content'']', writeback: false}
 is_package: true
