@@ -16,15 +16,17 @@ components:
     - event_bindings: {click: edit_entry_button_click}
       layout_properties: {}
       name: edit_entry_button
-      properties: {align: center, background: 'theme:Green Button', bold: false, border: '', enabled: true, font: '', font_size: 12, foreground: '', icon: 'fa:pencil-square', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: '', tooltip: Edit jot, underline: false, visible: true}
+      properties: {align: center, background: 'theme:Green Button', bold: false, border: '', enabled: true, font: '', font_size: 12, foreground: '', icon: 'fa:pencil-square', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: '', tooltip: Edit this jot, underline: false, visible: true}
       type: Button
     - event_bindings: {click: download_button_click}
+      layout_properties: {}
       name: download_button
-      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', icon: 'fa:download', text: '', tooltip: Download jot to markdown file}
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', icon: 'fa:download', text: '', tooltip: Save this jot to an .md file}
       type: Button
     - event_bindings: {click: delete_entry_button_click}
+      layout_properties: {}
       name: delete_entry_button
-      properties: {align: center, background: 'theme:Error', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:trash', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: '', tooltip: Delete jot, underline: false, visible: true}
+      properties: {align: center, background: 'theme:Error', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:trash', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: '', tooltip: Delete this jot, underline: false, visible: true}
       type: Button
     layout_properties: {grid_position: 'TJKGPT,RTUDXO'}
     name: flow_panel_1
