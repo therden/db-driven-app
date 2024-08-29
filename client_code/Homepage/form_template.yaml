@@ -1,42 +1,42 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{}'}
-  layout_properties: {slot: default}
-  name: content_panel
-  components:
-  - name: keepAlive_timer
+- components:
+  - event_bindings: {tick: keepAlive_timer_tick}
+    layout_properties: {grid_position: 'NESCPK,LEARJC'}
+    name: keepAlive_timer
     properties: {interval: 1380}
     type: Timer
-    layout_properties: {grid_position: 'NESCPK,LEARJC'}
-    event_bindings: {tick: keepAlive_timer_tick}
-  - type: RepeatingPanel
-    properties: {role: null, spacing_above: small, background: '', item_template: EntryView, foreground: '', items: null, spacing_below: small, visible: true, border: '', tooltip: ''}
-    layout_properties: {slot: title, grid_position: 'XRGDXR,JQCHKL'}
+  - layout_properties: {grid_position: 'XRGDXR,JQCHKL', slot: title}
     name: entries_panel
-- type: FlowPanel
-  properties: {}
-  layout_properties: {slot: nav-right}
-  name: navbar_links
-  components:
-  - type: Button
-    properties: {role: filled-button, bold: false, align: center, spacing_above: small, background: 'theme:Green Button', icon: 'fa:plus-circle', underline: false, font: '', icon_align: left, foreground: '', spacing_below: large, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: Add jot, text: ''}
-    event_bindings: {click: add_entry_button_click}
+    properties: {background: '', border: '', foreground: '', item_template: EntryView, items: null, role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true}
+    type: RepeatingPanel
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+- components:
+  - event_bindings: {click: add_entry_button_click}
     layout_properties: {}
     name: add_entry_button
-  - name: logout_button
-    properties: {text: '', background: 'theme:Error', icon: 'fa:arrow-circle-o-right', foreground: 'theme:On Primary', tooltip: Logout, bold: false, font_size: null}
+    properties: {align: center, background: 'theme:Green Button', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:plus-circle', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: large, text: '', tooltip: Add jot, underline: false, visible: true}
     type: Button
+  - event_bindings: {click: logout_button_click}
     layout_properties: {}
-    event_bindings: {click: logout_button_click}
-- type: Label
-  properties: {role: title, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: My Jots}
-  layout_properties: {slot: title}
+    name: logout_button
+    properties: {background: 'theme:Error', bold: false, font_size: null, foreground: 'theme:On Primary', icon: 'fa:arrow-circle-o-right', text: '', tooltip: Logout}
+    type: Button
+  layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- layout_properties: {slot: title}
   name: label_1
-- properties: {height: 41, source: _/theme/netnote-512x512.png}
-  type: Image
-  layout_properties: {slot: top-left-btn}
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: My Jots, tooltip: '', underline: false, visible: true}
+  type: Label
+- layout_properties: {slot: top-left-btn}
   name: image_1
+  properties: {height: 41, source: _/theme/netnote-512x512.png}
+  type: Image
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

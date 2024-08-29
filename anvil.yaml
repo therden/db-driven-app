@@ -1,101 +1,101 @@
+allow_embedding: true
 correct_dependency_ids: {}
+db_schema:
+  categories:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    server: full
+    title: Categories
+  entries:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: title
+      type: string
+    - admin_ui: {width: 200}
+      name: content
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: file_to_export
+      type: media
+    - admin_ui: {width: 200}
+      name: created
+      type: datetime
+    - admin_ui: {width: 200}
+      name: updated
+      type: datetime
+    - admin_ui: {width: 200}
+      name: category
+      target: categories
+      type: link_single
+    - admin_ui: {width: 200}
+      name: user
+      target: users
+      type: link_single
+    server: full
+    title: Entries
+  users:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: email
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: enabled
+      type: bool
+    - admin_ui: {order: 2, width: 200}
+      name: last_login
+      type: datetime
+    - admin_ui: {order: 3, width: 200}
+      name: password_hash
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      name: n_password_failures
+      type: number
+    - admin_ui: {order: 5, width: 200}
+      name: confirmed_email
+      type: bool
+    - admin_ui: {order: 6, width: 200}
+      name: signed_up
+      type: datetime
+    - admin_ui: {order: 7, width: 200}
+      name: remembered_logins
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: email_confirmation_key
+      type: string
+    server: full
+    title: Users
 dependencies: []
+metadata: {description: A quick-capture tool for the web, logo_img: 'asset:netnote-512x512.png', title: Jot}
+name: Jot
+package_name: News_App
+renamed: true
+runtime_options:
+  client_version: '3'
+  server_spec: null
+  server_spec_disabled: {base: python310-minimal, requirements: ''}
+  server_version: python3-sandbox
+  version: 2
 services:
-- source: /runtime/services/tables.yml
-  client_config: {}
+- client_config: {}
   server_config: {}
-- source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: true, enable_automatically: true, use_email: true, confirm_email: true, use_google: true, allow_remember_me: true, remember_me_days: 30}
+  source: /runtime/services/tables.yml
+- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: true, enable_automatically: true, remember_me_days: 30, use_email: true, use_google: true}
   server_config:
-    user_table: users
     email_content:
       confirm_address: {html: '<p>Thank you for registering for a <strong>Jots</strong> account!</p><p>To complete the process, click the following link to confirm that the email address entered is actually yours:</p><p>    {{confirm_link}}</p><p>Thanks,</p><p>The <strong>Jots</strong> team</p>', subject: Finish setting up your Jots account}
       reset_password: {html: '<p>Hi there,</p><p>We received a password reset request for the <strong>Jots</strong> account associated with {{email}}.</p><p>To reset your password, click the link below:</p><p>   {{reset_link}}</p><p>Note: The link will expire in ten minutes.</p><p>Thanks,</p><p>The <strong>Jots</strong> Team</p>', subject: Reset your Jots password}
-- source: /runtime/services/anvil/email.yml
-  client_config: {}
+    user_table: users
+  source: /runtime/services/anvil/users.yml
+- client_config: {}
   server_config: {test_mode: false}
-- source: /runtime/services/google.yml
-  client_config: {}
+  source: /runtime/services/anvil/email.yml
+- client_config: {}
   server_config: {}
-startup: {type: form, module: Homepage}
-package_name: News_App
-allow_embedding: true
-name: Jot
-runtime_options:
-  version: 2
-  client_version: '3'
-  server_version: python3-sandbox
-  server_spec: null
-  server_spec_disabled: {requirements: '', base: python310-minimal}
+  source: /runtime/services/google.yml
+startup: {module: Homepage, type: form}
 startup_form: null
-db_schema:
-  categories:
-    title: Categories
-    client: search
-    server: full
-    columns:
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-  entries:
-    title: Entries
-    client: search
-    server: full
-    columns:
-    - name: title
-      admin_ui: {width: 200}
-      type: string
-    - name: content
-      admin_ui: {width: 200}
-      type: string
-    - name: file_to_export
-      admin_ui: {order: 2, width: 200}
-      type: media
-    - name: created
-      admin_ui: {width: 200}
-      type: datetime
-    - name: updated
-      admin_ui: {width: 200}
-      type: datetime
-    - name: category
-      admin_ui: {width: 200}
-      type: link_single
-      target: categories
-    - name: user
-      admin_ui: {width: 200}
-      type: link_single
-      target: users
-  users:
-    client: none
-    server: full
-    columns:
-    - name: email
-      admin_ui: {order: 0, width: 200}
-      type: string
-    - name: enabled
-      admin_ui: {order: 1, width: 200}
-      type: bool
-    - name: last_login
-      admin_ui: {order: 2, width: 200}
-      type: datetime
-    - name: password_hash
-      admin_ui: {order: 3, width: 200}
-      type: string
-    - name: n_password_failures
-      admin_ui: {order: 4, width: 200}
-      type: number
-    - name: confirmed_email
-      admin_ui: {order: 5, width: 200}
-      type: bool
-    - name: signed_up
-      admin_ui: {order: 6, width: 200}
-      type: datetime
-    - name: remembered_logins
-      admin_ui: {order: 7, width: 200}
-      type: simpleObject
-    - name: email_confirmation_key
-      admin_ui: {width: 200}
-      type: string
-    title: Users
-renamed: true
-metadata: {description: A quick-capture tool for the web, title: Jot, logo_img: 'asset:netnote-512x512.png'}

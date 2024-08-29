@@ -55,7 +55,8 @@ class EntryView(EntryViewTemplate):
   def download_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     file_name = self.item['created'].strftime("%Y%m%d%H%M%S%z")
-    file_contents = self.content_label.text.encode()
+    file_contents = self.content_label.content.encode()
+    # self.content_label.content
     text_file = anvil.BlobMedia('text/plain', file_contents, name=f'{file_name}.md')
     anvil.media.download(text_file)
 
