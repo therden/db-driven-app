@@ -72,6 +72,18 @@ db_schema:
 dependencies: []
 metadata: {description: A quick-capture tool for the web, logo_img: 'asset:netnote-512x512.png', title: Jot}
 name: Jot
+native_deps:
+  head_html: |
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/markdown.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
 package_name: News_App
 renamed: true
 runtime_options:
