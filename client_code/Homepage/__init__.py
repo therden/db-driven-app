@@ -21,6 +21,7 @@ class Homepage(HomepageTemplate):
     self.refresh_entries()
       # Set an event handler on the RepeatingPanel (our 'entries_panel')
     self.entries_panel.set_event_handler('x-delete-entry', self.delete_entry)
+    self.entries_panel.set_event_handler('x-refresh-entries', self.refresh_entries)
     
 
   def add_entry_button_click(self, **event_args):

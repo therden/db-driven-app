@@ -61,11 +61,9 @@ def keep_alive():
 def programmatic_logout():
   anvil.users.logout()
 
-@anvil.server.callable
 def encrypt(plaintext):
   return anvil.secrets.encrypt_with_key('cryptkeeper', plaintext)
 
-@anvil.server.callable
 def decrypt(ciphertext):
   try:
     return anvil.secrets.decrypt_with_key('cryptkeeper', ciphertext)

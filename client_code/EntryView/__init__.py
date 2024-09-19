@@ -34,11 +34,16 @@ class EntryView(EntryViewTemplate):
     )
     # Update the entry if the user clicks save
     if save_clicked:
+      # content = self.content_label.content
       entry_copy['updated'] = datetime.now(anvil.tz.tzlocal())
       anvil.server.call('update_entry', self.item, entry_copy)
   
       # Now refresh the page
       self.refresh_data_bindings()
+      self.parent.raise_event("x-refresh-entries")
+      #FIX: displayed content and another 'Edit' each show encrypted data
+      # self.content_label.content = content
+
 
   def delete_entry_button_click(self, **event_args):
     """This method is called when the button is clicked"""
