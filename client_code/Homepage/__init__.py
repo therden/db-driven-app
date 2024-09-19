@@ -21,7 +21,7 @@ class Homepage(HomepageTemplate):
     self.refresh_entries()
       # Set an event handler on the RepeatingPanel (our 'entries_panel')
     self.entries_panel.set_event_handler('x-delete-entry', self.delete_entry)
-    self.entries_panel.set_event_handler('x-refresh-entries', self.refresh_entries)
+    # self.entries_panel.set_event_handler('x-refresh-entries', self.refresh_entries)
     
 
   def add_entry_button_click(self, **event_args):
@@ -41,6 +41,7 @@ class Homepage(HomepageTemplate):
       anvil.server.call('add_entry', new_entry, user_time)
       self.refresh_entries()
     
+  # def refresh_entries(self, *args, **kwargs):
   def refresh_entries(self):
      # Load existing entries from the Data Table, 
      # and display them in the RepeatingPanel
