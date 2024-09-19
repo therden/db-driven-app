@@ -93,9 +93,9 @@ runtime_options:
   server_version: python3-sandbox
   version: 2
 secrets:
-  encryption_key:
+  cryptkeeper:
     type: key
-    value: {I7B3HASX76O7OB52: zmndM4s3FCeeVe0Q+Chdpkvoh26W4MJ0g4vUbL+0xnNbBOh1q0/pOubTOubBFAEyHSun6RQkEJ1hw/gXGmKuDfKGUTvuEZcAfVoUfQ2J40MBx6Csp0mTbYAslo6gLqSmKwtvFVktztPEQfncnd44NJN2OtXl0eM=}
+    value: {I7B3HASX76O7OB52: hbL+rZw3qNGs7vKyjs4v3RCMObxwdk3iLPyOOFP2cWNY85wZ4SepuIUEtZZ+AVejic12ND8DnxiRKfe+hNwK4UD8iVS28EEIFWubuj7efUHvQOhYhxUczye0VoNIIiDXF66KodoxFf4u9SPFk5RmYRdO/cIkNFo=}
 services:
 - client_config: {}
   server_config: {}
