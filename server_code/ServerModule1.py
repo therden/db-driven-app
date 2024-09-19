@@ -13,6 +13,7 @@ from datetime import datetime
 def add_entry(entry_dict, user_time):
   current_user = anvil.users.get_user()
   if current_user is not None:
+    entry_dict['content'] = encrypt(entry_dict['content'])
     app_tables.entries.add_row(
       # created=datetime.now(anvil.tz.tzlocal()),
       # updated=datetime.now(anvil.tz.tzlocal()),
@@ -27,16 +28,22 @@ def get_entries():
   current_user = anvil.users.get_user()
   # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
   if current_user is not None:
-    return app_tables.entries.search(
+    results = app_tables.entries.search(
       tables.order_by("created", ascending=False),
       user = current_user
     )
+    for row in results:
+      row['content'] = decrypt(row['content'])
+    return results
 
 @anvil.server.callable
 def update_entry(entry, entry_dict):
   # check that the entry given is really a row in the ‘entries’ table
   if app_tables.entries.has_row(entry):
+    plain_content = entry_dict['content']
+    entry_dict['content'] = encrypt(entry_dict['content'])
     entry.update(**entry_dict)
+    entry_dict['content'] = plain_content
   else:
     raise Exception("Note does not exist")
 
