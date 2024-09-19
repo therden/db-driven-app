@@ -92,6 +92,10 @@ runtime_options:
   server_spec_disabled: {base: python310-minimal, requirements: ''}
   server_version: python3-sandbox
   version: 2
+secrets:
+  encryption_key:
+    type: key
+    value: {I7B3HASX76O7OB52: zmndM4s3FCeeVe0Q+Chdpkvoh26W4MJ0g4vUbL+0xnNbBOh1q0/pOubTOubBFAEyHSun6RQkEJ1hw/gXGmKuDfKGUTvuEZcAfVoUfQ2J40MBx6Csp0mTbYAslo6gLqSmKwtvFVktztPEQfncnd44NJN2OtXl0eM=}
 services:
 - client_config: {}
   server_config: {}
@@ -109,5 +113,8 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/google.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/secrets.yml
 startup: {module: Homepage, type: form}
 startup_form: null
