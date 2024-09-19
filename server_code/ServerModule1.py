@@ -40,10 +40,8 @@ def get_entries():
 def update_entry(entry, entry_dict):
   # check that the entry given is really a row in the ‘entries’ table
   if app_tables.entries.has_row(entry):
-    plain_content = entry_dict['content']
     entry_dict['content'] = encrypt(entry_dict['content'])
     entry.update(**entry_dict)
-    entry_dict['content'] = plain_content
   else:
     raise Exception("Note does not exist")
 
