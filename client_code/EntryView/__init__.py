@@ -37,11 +37,12 @@ class EntryView(EntryViewTemplate):
       entry_copy['updated'] = datetime.now(anvil.tz.tzlocal())
       plaintext = self.content_label.content
       anvil.server.call('update_entry', self.item, entry_copy)
-  
+      self.item['content'] = plaintext
+      
       # Now refresh the page
       self.refresh_data_bindings()
-      self.content_label.content = plaintext
-      entry_copy['content'] = plaintext
+      # self.content_label.content = plaintext
+      # entry_copy['content'] = plaintext
       # self.parent.raise_event("x-refresh-entries")
       #FIX: displayed content and another 'Edit' each show encrypted data
 
