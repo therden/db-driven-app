@@ -15,8 +15,6 @@ def add_entry(entry_dict, user_time):
   if current_user is not None:
     entry_dict['content'] = encrypt(entry_dict['content'])
     app_tables.entries.add_row(
-      # created=datetime.now(anvil.tz.tzlocal()),
-      # updated=datetime.now(anvil.tz.tzlocal()),
       created=user_time,
       updated=user_time,
       user = current_user,
