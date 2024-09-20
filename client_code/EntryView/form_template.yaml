@@ -1,14 +1,14 @@
 components:
 - components:
   - data_bindings:
-    - {code: 'self.item[''content'']', property: content, writeback: false}
+    - {code: 'self.item_copy[''content'']', property: content, writeback: false}
     layout_properties: {grid_position: 'QAANFD,YWCSPT'}
     name: content_label
     properties: {}
     type: RichText
   - components:
     - data_bindings:
-      - {code: '"Last updated:\n"+self.item[''updated''].strftime("%Y-%m-%d %H:%M:%S")', property: text, writeback: false}
+      - {code: '"Last updated:\n"+self.item_copy[''updated''].strftime("%Y-%m-%d %H:%M:%S")', property: text, writeback: false}
       layout_properties: {}
       name: updated_label
       properties: {font: '', font_size: 12, italic: true, spacing_above: none, spacing_below: none}
