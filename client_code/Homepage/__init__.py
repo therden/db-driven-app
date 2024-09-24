@@ -19,7 +19,7 @@ class Homepage(HomepageTemplate):
     # Any code you write here will run when the form opens.
     # user = anvil.users.get_user()
     self.refresh_entries()
-      # Set an event handler on the RepeatingPanel (our 'entries_panel')
+    # Set an event handler on the RepeatingPanel (our 'entries_panel')
     self.entries_panel.set_event_handler('x-delete-entry', self.delete_entry)
     # self.entries_panel.set_event_handler('x-refresh-entries', self.refresh_entries)
     
@@ -45,7 +45,9 @@ class Homepage(HomepageTemplate):
   def refresh_entries(self):
      # Load existing entries from the Data Table, 
      # and display them in the RepeatingPanel
-     self.entries_panel.items = anvil.server.call('get_entries')
+    # self.entries_panel.items = anvil.server.call('get_entries')
+     self.entries_panel.tag.entries_list = anvil.server.call('get_entries')
+     self.entries_panel.items = [entry for entry in self.entries_panel.tag.entries_list]
 
   def delete_entry(self, entry, **event_args):
     # Delete the entry
