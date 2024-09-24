@@ -26,10 +26,13 @@ def get_entries():
   current_user = anvil.users.get_user()
   # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
   if current_user is not None:
-    return app_tables.entries.search(
+    entries = app_tables.entries.search(
       tables.order_by("created", ascending=False),
       user = current_user
     )
+    for entry in entries:
+      entry['content'] = decrypt(entry['content'])
+    return entries
 
 @anvil.server.callable
 def update_entry(entry, entry_dict):
@@ -54,3 +57,12 @@ def keep_alive():
 @anvil.server.callable
 def programmatic_logout():
   anvil.users.logout()
+
+def encrypt(plaintext):
+  return anvil.secrets.encrypt_with_key("cryptkeeper", plaintext)
+
+def decrypt(ciphertext):
+  try:
+    return anvil.secrets.decrypt_with_key("cryptkeeper", ciphertext)
+  except anvil.secrets.SecretError:
+    return ciphertext
