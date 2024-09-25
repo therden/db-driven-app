@@ -57,6 +57,11 @@ class EntryView(EntryViewTemplate):
     """This method is called when the button is clicked"""
     file_name = self.item["created"].strftime("%Y%m%d%H%M%S%z")
     file_contents = self.content_label.content.encode()
-    # self.content_label.content
     text_file = anvil.BlobMedia("text/plain", file_contents, name=f"{file_name}.md")
     anvil.media.download(text_file)
+
+  def form_refreshing_data_bindings(self, **event_args):
+    """This method is called when refresh_data_bindings is called"""
+    print("refresh_data_bindings called from EntryView")
+    # self.parent.raise_event("x-refresh_data_bindings")
+    pass

@@ -21,8 +21,11 @@ class Homepage(HomepageTemplate):
     # self.refresh_entries()
     self.refresh_data_bindings()
     # Set an event handler on the RepeatingPanel (our 'entries_panel')
-    self.entries_panel.set_event_handler("x-refresh_entries", self.refresh_entries)
+    # self.entries_panel.set_event_handler("x-refresh_entries", self.refresh_entries)
     self.entries_panel.set_event_handler("x-delete-entry", self.delete_entry)
+    self.entries_panel.set_event_handler(
+      "x-refresh_data_bindings", self.form_refreshing_data_bindings
+    )
 
   def add_entry_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -44,14 +47,15 @@ class Homepage(HomepageTemplate):
 
   def form_refreshing_data_bindings(self, **event_args):
     """This method is called when refreshing_data_bindings is called"""
+    print("refresh_data_bindings called from HomePage")
     self.entries_panel.items = anvil.server.call("get_entries")
 
-  def refresh_entries(self, *args, **kwargs):
-    # Load and display existing entries from the Data Table
-    self.entries_panel.items = anvil.server.call("get_entries")
-    # server_entries = anvil.server.call('get_entries')
-    # self.tag.local_entries = [dict(each) for each in server_entries]
-    # self.entries_panel.items = self.tag.local_entries
+  # def refresh_entries(self, *args, **kwargs):
+  #   # Load and display existing entries from the Data Table
+  #   self.entries_panel.items = anvil.server.call("get_entries")
+  #   # server_entries = anvil.server.call('get_entries')
+  #   # self.tag.local_entries = [dict(each) for each in server_entries]
+  #   # self.entries_panel.items = self.tag.local_entries
 
   def delete_entry(self, entry, **event_args):
     # Delete the entry
