@@ -39,7 +39,7 @@ class EntryView(EntryViewTemplate):
 
       # Now refresh the page
       self.refresh_data_bindings()
-      # self.parent.raise_event("x-refresh_entries")
+      # self.parent.raise_event("x-refresh_data_bindings")
 
   def delete_entry_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -63,5 +63,5 @@ class EntryView(EntryViewTemplate):
   def form_refreshing_data_bindings(self, **event_args):
     """This method is called when refresh_data_bindings is called"""
     print("refresh_data_bindings called from EntryView")
-    # self.parent.raise_event("x-refresh_data_bindings")
-    pass
+    self.parent.raise_event("x-refresh_data_bindings")
+    # pass

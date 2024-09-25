@@ -24,7 +24,7 @@ class Homepage(HomepageTemplate):
     # self.entries_panel.set_event_handler("x-refresh_entries", self.refresh_entries)
     self.entries_panel.set_event_handler("x-delete-entry", self.delete_entry)
     self.entries_panel.set_event_handler(
-      "x-refresh_data_bindings", self.form_refreshing_data_bindings
+      "x-refresh_data_bindings", self.refresh_data_bindings
     )
 
   def add_entry_button_click(self, **event_args):
